@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace AuctionService.Data.Migrations
+namespace AuctionService.Migrations
 {
     /// <inheritdoc />
     public partial class InitialCreate : Migration
@@ -40,7 +40,7 @@ namespace AuctionService.Data.Migrations
                     Model = table.Column<string>(type: "text", nullable: true),
                     Year = table.Column<int>(type: "integer", nullable: false),
                     Color = table.Column<string>(type: "text", nullable: true),
-                    Mileage = table.Column<string>(type: "text", nullable: true),
+                    Mileage = table.Column<int>(type: "integer", nullable: false),
                     ImageUrl = table.Column<string>(type: "text", nullable: true),
                     AuctionId = table.Column<Guid>(type: "uuid", nullable: false)
                 },

@@ -8,7 +8,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace AuctionService.Data.Migrations
+namespace AuctionService.Migrations
 {
     [DbContext(typeof(AuctionDbContext))]
     partial class AuctionDbContextModelSnapshot : ModelSnapshot
@@ -60,7 +60,7 @@ namespace AuctionService.Data.Migrations
                     b.ToTable("Auctions");
                 });
 
-            modelBuilder.Entity("AuctionService.Entities.Item", b =>
+            modelBuilder.Entity("AuctionService.Item", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -78,8 +78,8 @@ namespace AuctionService.Data.Migrations
                     b.Property<string>("Make")
                         .HasColumnType("text");
 
-                    b.Property<string>("Mileage")
-                        .HasColumnType("text");
+                    b.Property<int>("Mileage")
+                        .HasColumnType("integer");
 
                     b.Property<string>("Model")
                         .HasColumnType("text");
@@ -95,11 +95,11 @@ namespace AuctionService.Data.Migrations
                     b.ToTable("Items");
                 });
 
-            modelBuilder.Entity("AuctionService.Entities.Item", b =>
+            modelBuilder.Entity("AuctionService.Item", b =>
                 {
                     b.HasOne("AuctionService.Entities.Auction", "Auction")
                         .WithOne("Item")
-                        .HasForeignKey("AuctionService.Entities.Item", "AuctionId")
+                        .HasForeignKey("AuctionService.Item", "AuctionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
